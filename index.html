@@ -3,8 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <title>Title</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<script src="index.js" ></script>
+  <div class="add-task-wrapper">
+    <input class="add-task-input" type="text" placeholder="Type task name"/>
+    <button type="submit" class="add-task-button">+</button>
+  </div>
+  <div class="tasks-wrapper">
+    <div class="tasks-column">
+      <h4 class="tasks-column-header">To do</h4>
+    </div>
+    <div class="tasks-column">
+      <h4 class="tasks-column-header">Doing</h4>
+    </div>
+    <div class="tasks-column">
+      <h4 class="tasks-column-header">Done</h4>
+    </div>
+  </div>
+  <script src="index.js" ></script>
 </body>
 </html>
