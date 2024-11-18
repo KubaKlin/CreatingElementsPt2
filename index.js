@@ -1,6 +1,11 @@
 const taskInput = document.querySelector('.add-task-input');
 const taskInputButton = document.querySelector('.add-task-button');
-const tasksWrapper = document.querySelector('.tasks-wrapper');
+const tasksWrapper = document.querySelector('.tasks-column');
+
+const firstColumn = document.querySelector('#first-column');
+const secondColumn = document.querySelector('#second-column');
+const thirdColumn = document.querySelector('#third-column');
+
 
 taskInputButton.addEventListener('click', function() {
   let taskTitle = taskInput.value;
@@ -28,9 +33,34 @@ taskInputButton.addEventListener('click', function() {
     singleTask.remove();
   });
 
-  if (taskTitle !== '') {
+  let columnCount = 1;
+  rightArrowButton.addEventListener('click', function() {
+    singleTask.cloneNode(true);
+    singleTask.remove();
+    if (columnCount === 1) {
+      secondColumn.append(singleTask);
+      columnCount = ++columnCount;
+    } else if (columnCount === 2) {
+      thirdColumn.append(singleTask);
+      columnCount = ++columnCount;
+    }
+  })
 
+  leftArrowButton.addEventListener('click', function() {
+    singleTask.cloneNode(true);
+    singleTask.remove();
+    if (columnCount === 2) {
+      firstColumn.append(singleTask);
+      columnCount = --columnCount;
+    } else if (columnCount === 3) {
+      secondColumn.append(singleTask);
+      columnCount = --columnCount;
+    }
+  })
+
+  if (taskTitle !== '') {
     tasksWrapper.append(singleTask);
+    taskInput.value = '';
   } else {
     taskTitle = '';
   }
