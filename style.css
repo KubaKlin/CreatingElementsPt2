@@ -16,9 +16,26 @@ body {
 }
 
 .add-task-wrapper {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.add-input-error-label {
+  color: #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 5px 10px;
+  width: 100%;
+  z-index: -1;
+  transition: 200ms all ease-in-out;
+}
+
+.add-input-error-label.active {
+  top: 38px;
+  color: red;
 }
 
 .add-task-input {

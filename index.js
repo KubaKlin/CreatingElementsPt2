@@ -1,6 +1,8 @@
 const taskInput = document.querySelector('.add-task-input');
 const taskInputButton = document.querySelector('.add-task-button');
 const tasksWrapper = document.querySelector('.tasks-column');
+const errorLabel = document.querySelector('.add-input-error-label');
+errorLabel.innerText = 'Tast title cannot be empty';
 
 const firstColumn = document.querySelector('#first-column');
 const secondColumn = document.querySelector('#second-column');
@@ -61,7 +63,9 @@ taskInputButton.addEventListener('click', function() {
   if (taskTitle !== '') {
     tasksWrapper.append(singleTask);
     taskInput.value = '';
+    errorLabel.classList.remove('active');
+    errorLabel.innerText = 'Task title cannot be empty';
   } else {
-    taskTitle = '';
+    errorLabel.classList.add('active');
   }
 });
