@@ -2,7 +2,7 @@ const taskInput = document.querySelector('.add-task-input');
 const taskInputButton = document.querySelector('.add-task-button');
 const tasksWrapper = document.querySelector('.tasks-column');
 const errorLabel = document.querySelector('.add-input-error-label');
-errorLabel.innerText = 'Task title cannot be empty';
+errorLabel?.innerText = 'Task title cannot be empty';
 
 const firstColumn = document.querySelector('#first-column');
 const secondColumn = document.querySelector('#second-column');
@@ -82,7 +82,7 @@ taskInputButton?.addEventListener('click', function() {
 
   if (taskTitle !== '') {
     tasksWrapper?.append(taskCard);
-    taskInput.value = '';
+    taskInput?.value = '';
     errorLabel?.classList.remove('active');
   } else {
     errorLabel?.classList.add('active');
